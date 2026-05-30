@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - Zad Al Muslim</title>
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
             color: #333;
             background-color: #f8f9fa;
@@ -21,6 +21,29 @@
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
+        /* أزرار تبديل اللغة */
+        .lang-switcher {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 1px dashed #ddd;
+            padding-bottom: 15px;
+        }
+        .lang-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.9em;
+            transition: background 0.2s;
+        }
+        .lang-btn:hover {
+            background-color: #2980b9;
+        }
         h1 {
             color: #2c3e50;
             border-bottom: 2px solid #3498db;
@@ -33,92 +56,159 @@
             border-bottom: 1px solid #eee;
             padding-bottom: 10px;
         }
-        p {
-            margin-bottom: 15px;
-        }
-        ul {
-            margin-bottom: 20px;
-        }
-        li {
-            margin-bottom: 8px;
-        }
-        a {
-            color: #3498db;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
+        p { margin-bottom: 15px; }
+        ul { margin-bottom: 20px; }
+        li { margin-bottom: 8px; }
+        a { color: #3498db; text-decoration: none; }
+        a:hover { text-decoration: underline; }
         .effective-date {
             font-style: italic;
             color: #7f8c8d;
             margin-top: 40px;
             font-size: 0.9em;
         }
+        /* إخفاء افتراضي للغات المبدلة */
+        .lang-section { display: none; }
+        .active-lang { display: block; }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Privacy Policy</h1>
         
-        <p>This privacy policy applies to the <strong>Zad Al Muslim</strong> app (hereby referred to as "Application") for mobile devices that was created by Adnan Nasr (hereby referred to as "Service Provider") as a Free service. This service is intended for use "AS IS".</p>
+        <div class="lang-switcher">
+            <button class="lang-btn" onclick="switchLanguage('ar')">العربية</button>
+            <button class="lang-btn" onclick="switchLanguage('en')">English</button>
+        </div>
 
-        <h2>Information Collection and Use</h2>
-        <p>The Application collects information when you download and use it. This information may include information such as:</p>
-        <ul>
-            <li>Your device's Internet Protocol address (e.g. IP address)</li>
-            <li>The pages of the Application that you visit, the time and date of your visit, the time spent on those pages</li>
-            <li>The time spent on the Application</li>
-            <li>The operating system you use on your mobile device</li>
-        </ul>
+        <div id="lang-ar" class="lang-section" dir="rtl">
+            <h1>سياسة الخصوصية</h1>
+            <p>تنطبق سياسة الخصوصية هذه على تطبيق <strong>زاد المسلم</strong> (المشار إليه هنا باسم "التطبيق") للأجهزة المحمولة، والذي تم إنشاؤه بواسطة عدنان نصر (المشار إليه هنا باسم "مزود الخدمة") كخدمة مجانية. هذه الخدمة مقدمة للاستخدام "كما هي".</p>
+            <h2>جمع المعلومات واستخدامها</h2>
+            <p>يقوم التطبيق بجمع بعض المعلومات عند تحميله واستخدامه. قد تشمل هذه المعلومات ما يلي:</p>
+            <ul>
+                <li>عنوان بروتوكول الإنترنت الخاص بجهازك (مثل عنوان IP).</li>
+                <li>الصفحات التي تزورها داخل التطبيق، وقت وتاريخ زيارتك، والوقت المستغرق في تلك الصفحات.</li>
+                <li>إجمالي الوقت المستغرق في استخدام التطبيق.</li>
+                <li>نظام التشغيل الذي تستخدمه على جهازك المحمول.</li>
+            </ul>
+            <p>يطلب التطبيق الإذن للوصول إلى موقع جهازك لتحديد إحداثياتك الجغرافية. يُسْتخْدم هذا الإذن حصرياً لتوفير الميزات الأساسية للتطبيق التي تعمل بدون إنترنت كما هو موضح أدناه:</p>
+            <ul>
+                <li><strong>خدمات تحديد الموقع الجغرافي (بدون إنترنت):</strong> يستخدم مزود الخدمة بيانات الموقع (الإحداثيات، كود الدولة، واسم المدينة) فقط لحساب ميزات التطبيق المعتمدة على الموقع بدقة، مثل اتجاه القبلة ومواقيت الصلاة الدقيقة. لضمان أقصى درجات الخصوصية وإتاحة الخدمة بدون إنترنت، يتم معالجة هذه البيانات وتخزينها محلياً بالكامل داخل ذاكرة التخزين المؤقت الآمنة للتطبيق (SharedPreferences) على جهازك. لا يتم نقل هذه البيانات أبداً إلى خوادم (سيرفرات) خارجية، ولا يملك مزود الخدمة أي صلاحية للوصول إليها.</li>
+                <li><strong>التحليلات والتحسينات:</strong> تساعد بيانات الموقع المجمعة والمجهولة مزود الخدمة على تحليل توزيع المستخدمين، وتحديد الاتجاهات العامة، وتحسين الأداء العام ووظائف التطبيق.</li>
+                <li><strong>خدمات الطرف الثالث:</strong> قد يقوم مزود الخدمة بشكل دوري بنقل بيانات موقع مجهولة المصدر إلى خدمات خارجية. تساعد هذه الخدمات في تحسين التطبيق وتحسين العروض المقدمة.</li>
+            </ul>
+            <p>لا يستخدم التطبيق تقنيات الذكاء الاصطناعي (AI) لمعالجة بياناتك أو لتقديم الميزات.</p>
+            <p>قد يستخدم مزود الخدمة المعلومات التي قدمتها للتواصل معك من وقت لآخر لتزويدك ومعلومات مهمة، والإشعارات المطلوبة، والعروض الترويجيّة والتسويقية.</p>
+            <p>للحصول على تجربة أفضل أثناء استخدام التطبيق، قد يطلب منك مزود الخدمة تزويده ببعض معلومات الهوية الشخصية، بما في ذلك على سبيل المثال لا الحصر، المراسلات الخاصة بالدعم الفني عبر البريد الإلكتروني <a href="mailto:adnzed00@gmail.com">adnzed00@gmail.com</a>. سيتم الاحتفاظ بالمعلومات التي يطلبها مزود الخدمة واستخدامها كما هو موضح في سياسة الخصوصية هذه.</p>
+            <h2>وصول الطرف الثالث للبيانات</h2>
+            <p>يتم نقل البيانات المجمعة والمجهولة المصدر فقط بشكل دوري إلى خدمات خارجية لمساعدة مزود الخدمة في تحسين التطبيق وخدماته. قد يشارك مزود الخدمة معلوماتك مع أطراف ثالثة بالطرق الموضحة في بيان الخصوصية هذا.</p>
+            <p>يجوز لمزود الخدمة الإفصاح عن المعلومات المقدمة من المستخدم والمعلومات التي يتم جمعها تلقائياً في الحالات التالية:</p>
+            <ul>
+                <li>وفقاً لما يقتضيه القانون، مثل الامتثال لأمر استدعاء أو عملية قانونية مماثلة.</li>
+                <li>عندما يعتقد بحسن نية أن الإفصاح ضروري لحماية حقوقه، أو حماية سلامتك أو سلامة الآخرين، أو التحقيق في الاحتيال، أو الرد على طلب حكومي.</li>
+                <li>مع مزودي الخدمة الموثوقين الذين يعملون نيابة عنه، والذين ليس لديهم استخدام مستقل للمعلومات التي نكشفها لهم، ووافقوا على الالتزام بالقواعد المحددة في بيان الخصوصية هذا.</li>
+            </ul>
+            <h2>حقوق إلغاء الاشتراك</h2>
+            <p>يمكنك إيقاف جميع عمليات جمع المعلومات بواسطة التطبيق بسهولة عن طريق إلغاء تثبيته (حذفه من الجهاز). يمكنك استخدام عمليات إلغاء التثبيت القياسية المتوفرة كجزء من جهازك المحمول أو عبر متجر التطبيقات.</p>
+            <h2>الاحتفاظ بالبيانات والتحكم الكامل للمستخدم (حذف البيانات)</h2>
+            <p>يمنح التطبيق المستخدمين التحكم الكامل في بيانات الموقع المخزنة محلياً. يمكنك إدارة بياناتك أو حذفها نهائياً في أي وقت مباشرة من داخل التطبيق من خلال الميزات التالية:</p>
+            <ul>
+                <li><strong>حذف بيانات الموقع:</strong> ميزة متوفرة في قائمة "الإعدادات". يؤدي تفعيل هذا الخيار إلى مسح إحداثياتك ومدينتك ودولتك فوراً من ذاكرة التخزين المحلي (SharedPreferences). يرجى العلم أنه بمجرد الحذف، سيعرض التطبيق تنبيهاً في صفحة مواقيت الصلاة وسيعتمد على آخر مواقيت صلاة معروفة ومخزنة في قاعدة البيانات المحلية (Isar DB)، مما قد يؤثر على دقة الأوقات حتى تقوم بتحديث موقعك مجدداً.</li>
+                <li><strong>تحديث بيانات الموقع:</strong> ميزة متوفرة في قائمة "الإعدادات" وعبر نافذة التنبيه في صفحة مواقيت الصلاة. تتيح لك هذه الميزة إعادة جلب الموقع يدوياً لتحديث الإحداثيات المحلية واستعادة دقة الحسابات الكاملة دون الحاجة للاتصال بالإنترنت.</li>
+                <li><strong>إلغاء تثبيت التطبيق:</strong> يؤدي حذف التطبيق من جهازك إلى مسح جميع سجلات قاعدة البيانات المحلية (Isar DB) وإعدادات التخزين المؤقت (SharedPreferences) فوراً ونهائياً من جهازك المحمول.</li>
+            </ul>
+            <p>بالنسبة لأي بيانات تواصل يقدمها المستخدم (مثل رسائل البريد الإلكتروني المرسلة للدعم الفني)، سيتذكرها مزود الخدمة طالما كان ذلك ضرورياً بشكل معقول. إذا كنت ترغب في طلب الحذف اليدوي لأي من مراسلات الدعم الفني، يرجى التواصل معنا عبر البريد الإلكتروني <a href="mailto:adnzed00@gmail.com">adnzed00@gmail.com</a>، وسنقوم بالرد في إطار زمني معقول.</p>
+            <h2>الأطفال</h2>
+            <p>لا يستخدم مزود الخدمة التطبيق لطلب بيانات من الأطفال دون سن 13 عاماً أو التسويق لهم عن علم.</p>
+            <p>لا يجمع مزود الخدمة عمداً معلومات تعريف شخصية من الأطفال. ويشجع مزود الخدمة جميع الأطفال على عدم تقديم أي معلومات تعريف شخصية من خلال التطبيق و/أو الخدمات. كما يحث الآباء والأوصياء القانونيين على مراقبة استخدام أطفالهم للإنترنت والمساعدة في إنفاذ هذه السياسة من خلال توجيه أطفالهم بعدم تقديم معلومات تعريف شخصية مطلقاً من خلال التطبيق و/أو الخدمات دون إذنهم. إذا كان لديك سبب للاعتقاد بأن طفلاً قد قدم معلومات تعريف شخصية لمزود الخدمة، يرجى التواصل معنا عبر (<a href="mailto:adnzed00@gmail.com">adnzed00@gmail.com</a>) حتى نتمكن من اتخاذ الإجراءات اللازمة. يجب أيضاً ألا يقل عمرك عن 16 عاماً للموافقة على معالجة معلومات الهوية الشخصية الخاصة بك في بلدك (في بعض البلدان قد نسمح لوالدك أو وصيك بالقيام بذلك نيابة عنك).</p>
+            <h2>الأمان</h2>
+            <p>يهتم مزود الخدمة بالحفاظ على سرية معلوماتك، ويقدم ضمانات مادية وإلكترونية وإجرائية لحماية المعلومات التي يقوم بمعالجتها وصيانتها.</p>
+            <h2>التغييرات</h2>
+            <p>قد يتم تحديث سياسة الخصوصية هذه من وقت لآخر لأي سبب. سيقوم مزود الخدمة بإخطارك بأي تغييرات تطرأ على سياسة الخصوصية عن طريق تحديث هذه الصفحة بالسياسة الجديدة. يُنصح باستشارة سياسة الخصوصية هذه بانتظام لمعرفة أي تغييرات، حيث يُعتبر الاستخدام المستمر بمثابة موافقة على جميع التغييرات.</p>
+            <p class="effective-date">تسري سياسة الخصوصية هذه اعتباراً من: 31-05-2026</p>
+            <h2>موافقتك</h2>
+            <p>باستخدامك للتطبيق، فإنك توافق على معالجة معلوماتك كما هو موضح في سياسة الخصوصية هذه الآن وتعديلاتها المستقبلية.</p>
+            <h2>اتصل بنا</h2>
+            <p>إذا كانت لديك أي أسئلة بخصوص الخصوصية أثناء استخدام التطبيق، أو لديك استفسارات حول الممارسات، يرجى التواصل مع مزود الخدمة عبر البريد الإلكتروني: <a href="mailto:adnzed00@gmail.com">adnzed00@gmail.com</a>.</p>
+        </div>
 
-        <p>The Application requests access to your device's location to determine your geographical location, which is required to provide the core functionalities of the Application as described below:</p>
-        <ul>
-            <li><strong>Geolocation Services:</strong> The Service Provider utilizes location data exclusively to provide accurate, location-based features such as calculating the Qibla direction and accurate Prayer Times based on your current coordinates.</li>
-            <li><strong>Analytics and Improvements:</strong> Aggregated and anonymized location data helps the Service Provider to analyze user distribution, identify trends, and improve the overall performance and functionality of the Application.</li>
-            <li><strong>Third-Party Services:</strong> Periodically, the Service Provider may transmit anonymized location data to external services. These services assist them in enhancing the Application and optimizing their offerings.</li>
-        </ul>
+        <div id="lang-en" class="lang-section" dir="ltr">
+            <h1>Privacy Policy</h1>
+            <p>This privacy policy applies to the <strong>Zad Al Muslim</strong> app (hereby referred to as "Application") for mobile devices that was created by Adnan Nasr (hereby referred to as "Service Provider") as a Free service. This service is intended for use "AS IS".</p>
+            <h2>Information Collection and Use</h2>
+            <p>The Application collects information when you download and use it. This information may include information such as:</p>
+            <ul>
+                <li>Your device's Internet Protocol address (e.g. IP address)</li>
+                <li>The pages of the Application that you visit, the time and date of your visit, the time spent on those pages</li>
+                <li>The time spent on the Application</li>
+                <li>The operating system you use on your mobile device</li>
+            </ul>
+            <p>The Application requests access to your device's location to determine your geographical coordinates. This permission is strictly used to provide the core offline functionalities of the Application as described below:</p>
+            <ul>
+                <li><strong>Offline Geolocation Services:</strong> The Service Provider utilizes location data (coordinates, country code, city name) exclusively to calculate accurate, location-based features such as the Qibla direction and precise Prayer Times. To ensure maximum privacy and offline availability, this data is processed and stored locally within your device's secure SharedPreferences cache. It is never transmitted to external servers, and the Service Provider has no access to it.</li>
+                <li><strong>Analytics and Improvements:</strong> Aggregated and anonymized location data helps the Service Provider to analyze user distribution, identify trends, and improve the overall performance and functionality of the Application.</li>
+                <li><strong>Third-Party Services:</strong> Periodically, the Service Provider may transmit anonymized location data to external services. These services assist them in enhancing the Application and optimizing their offerings.</li>
+            </ul>
+            <p>The Application does not use Artificial Intelligence (AI) technologies to process your data or provide features.</p>
+            <p>The Service Provider may use the information you provided to contact you from time to time to provide you with important information, required notices and marketing promotions.</p>
+            <p>For a better experience, while using the Application, the Service Provider may require you to provide us with certain personally identifiable information, including but not limited to support communication via <a href="mailto:adnzed00@gmail.com">adnzed00@gmail.com</a>. The information that the Service Provider request will be retained by them and used as described in this privacy policy.</p>
+            <h2>Third Party Access</h2>
+            <p>Only aggregated, anonymized data is periodically transmitted to external services to aid the Service Provider in improving the Application and their service. The Service Provider may share your information with third parties in the ways that are described in this privacy statement.</p>
+            <p>The Service Provider may disclose User Provided and Automatically Collected Information:</p>
+            <ul>
+                <li>as required by law, such as to comply with a subpoena, or similar legal process;</li>
+                <li>when they believe in good faith that disclosure is necessary to protect their rights, protect your safety or the safety of others, investigate fraud, or respond to a government request;</li>
+                <li>with their trusted services providers who work on their behalf, do not have an independent use of the information we disclose to them, and have agreed to adhere to the rules set forth in this privacy statement.</li>
+            </ul>
+            <h2>Opt-Out Rights</h2>
+            <p>You can stop all collection of information by the Application easily by uninstalling it. You may use the standard uninstall processes as may be available as part of your mobile device or via the mobile application marketplace or network.</p>
+            <h2>Data Retention and User Control (Data Deletion)</h2>
+            <p>The Application gives users full control over their locally stored location data. You can manage or permanently delete your data at any time directly inside the Application through the following features:</p>
+            <ul>
+                <li><strong>Delete Location Data:</strong> Available in the Settings menu. Activating this feature instantly wipes your coordinates, city, and country data from the local SharedPreferences cache. Please note that once deleted, the Application will display an in-app warning on the Prayer Times page and fallback to using the last known prayer schedules stored in the local Isar database, which might affect time accuracy until you refresh your location.</li>
+                <li><strong>Update Location Data:</strong> Available in both the Settings menu and via the in-app alert dialog on the Prayer Times page. This allows you to manually re-trigger location fetching to update your local coordinates and restore full calculation accuracy without internet dependency.</li>
+                <li><strong>App Uninstallation:</strong> Uninstalling the Application will instantly and permanently wipe all local database records (Isar DB) and cache preferences (SharedPreferences) from your mobile device.</li>
+            </ul>
+            <p>For any user-provided communication data (such as emails sent for support), the Service Provider will retain the data for as long as reasonably necessary. If you would like to request the manual deletion of any support correspondence data, please contact us at <a href="mailto:adnzed00@gmail.com">adnzed00@gmail.com</a>, and we will respond within a reasonable timeframe.</p>
+            <h2>Children</h2>
+            <p>The Service Provider does not use the Application to knowingly solicit data from or market to children under the age of 13.</p>
+            <p>The Service Provider does not knowingly collect personally identifiable information from children. The Service Provider encourages all children to never submit any personally identifiable information through the Application and/or Services. The Service Provider encourage parents and legal guardians to monitor their children's Internet usage and to help enforce this Policy by instructing their children never to provide personally identifiable information through the Application and/or Services without their permission. If you have reason to believe that a child has provided personally identifiable information to the Service Provider through the Application and/or Services, please contact the Service Provider (<a href="mailto:adnzed00@gmail.com">adnzed00@gmail.com</a>) so that they will be able to take the necessary actions. You must also be at least 16 years of age to consent to the processing of your personally identifiable information in your country (in some countries we may allow your parent or guardian to do so on your behalf).</p>
+            <h2>Security</h2>
+            <p>The Service Provider is concerned about safeguarding the confidentiality of your information. The Service Provider provides physical, electronic, and procedural safeguards to protect information the Service Provider processes and maintains.</p>
+            <h2>Changes</h2>
+            <p>This Privacy Policy may be updated from time to time for any reason. The Service Provider will notify you of any changes to the Privacy Policy by updating this page with the new Privacy Policy. You are advised to consult this Privacy Policy regularly for any changes, as continued use is deemed approval of all changes.</p>
+            <p class="effective-date">This privacy policy is effective as of 2026-05-31</p>
+            <h2>Your Consent</h2>
+            <p>By using the Application, you are consenting to the processing of your information as set forth in this Privacy Policy now and as amended by us.</p>
+            <h2>Contact Us</h2>
+            <p>If you have any questions regarding privacy while using the Application, or have questions about the practices, please contact the Service Provider via email at <a href="mailto:adnzed00@gmail.com">adnzed00@gmail.com</a>.</p>
+        </div>
 
-        <p>The Application does not use Artificial Intelligence (AI) technologies to process your data or provide features.</p>
-
-        <p>The Service Provider may use the information you provided to contact you from time to time to provide you with important information, required notices and marketing promotions.</p>
-
-        <p>For a better experience, while using the Application, the Service Provider may require you to provide us with certain personally identifiable information, including but not limited to support communication via <a href="mailto:adnzed00@gmail.com">adnzed00@gmail.com</a>. The information that the Service Provider request will be retained by them and used as described in this privacy policy.</p>
-
-        <h2>Third Party Access</h2>
-        <p>Only aggregated, anonymized data is periodically transmitted to external services to aid the Service Provider in improving the Application and their service. The Service Provider may share your information with third parties in the ways that are described in this privacy statement.</p>
-
-        <p>The Service Provider may disclose User Provided and Automatically Collected Information:</p>
-        <ul>
-            <li>as required by law, such as to comply with a subpoena, or similar legal process;</li>
-            <li>when they believe in good faith that disclosure is necessary to protect their rights, protect your safety or the safety of others, investigate fraud, or respond to a government request;</li>
-            <li>with their trusted services providers who work on their behalf, do not have an independent use of the information we disclose to them, and have agreed to adhere to the rules set forth in this privacy statement.</li>
-        </ul>
-
-        <h2>Opt-Out Rights</h2>
-        <p>You can stop all collection of information by the Application easily by uninstalling it. You may use the standard uninstall processes as may be available as part of your mobile device or via the mobile application marketplace or network.</p>
-
-        <h2>Data Retention Policy</h2>
-        <p>The Service Provider will retain User Provided data for as long as you use the Application and for a reasonable time thereafter. If you'd like them to delete User Provided Data that you have provided via the Application, please contact them at <a href="mailto:adnzed00@gmail.com">adnzed00@gmail.com</a> and they will respond in a reasonable time.</p>
-
-        <h2>Children</h2>
-        <p>The Service Provider does not use the Application to knowingly solicit data from or market to children under the age of 13.</p>
-
-        <p>The Service Provider does not knowingly collect personally identifiable information from children. The Service Provider encourages all children to never submit any personally identifiable information through the Application and/or Services. The Service Provider encourage parents and legal guardians to monitor their children's Internet usage and to help enforce this Policy by instructing their children never to provide personally identifiable information through the Application and/or Services without their permission. If you have reason to believe that a child has provided personally identifiable information to the Service Provider through the Application and/or Services, please contact the Service Provider (<a href="mailto:adnzed00@gmail.com">adnzed00@gmail.com</a>) so that they will be able to take the necessary actions. You must also be at least 16 years of age to consent to the processing of your personally identifiable information in your country (in some countries we may allow your parent or guardian to do so on your behalf).</p>
-
-        <h2>Security</h2>
-        <p>The Service Provider is concerned about safeguarding the confidentiality of your information. The Service Provider provides physical, electronic, and procedural safeguards to protect information the Service Provider processes and maintains.</p>
-
-        <h2>Changes</h2>
-        <p>This Privacy Policy may be updated from time to time for any reason. The Service Provider will notify you of any changes to the Privacy Policy by updating this page with the new Privacy Policy. You are advised to consult this Privacy Policy regularly for any changes, as continued use is deemed approval of all changes.</p>
-
-        <p class="effective-date">This privacy policy is effective as of 2026-04-19</p>
-
-        <h2>Your Consent</h2>
-        <p>By using the Application, you are consenting to the processing of your information as set forth in this Privacy Policy now and as amended by us.</p>
-
-        <h2>Contact Us</h2>
-        <p>If you have any questions regarding privacy while using the Application, or have questions about the practices, please contact the Service Provider via email at <a href="mailto:adnzed00@gmail.com">adnzed00@gmail.com</a>.</p>
     </div>
+
+    <script>
+        function switchLanguage(lang) {
+            // إخفاء كافة الأقسام أولاً
+            document.getElementById('lang-ar').style.display = 'none';
+            document.getElementById('lang-en').style.display = 'none';
+            
+            // إظهار القسم المطلوب
+            if (lang === 'ar') {
+                document.getElementById('lang-ar').style.display = 'block';
+            } else {
+                document.getElementById('lang-en').style.display = 'block';
+            }
+        }
+
+        // كشف لغة جهاز المستخدم تلقائياً عند تحميل الصفحة لأول مرة
+        window.onload = function() {
+            var userLang = navigator.language || navigator.userLanguage; 
+            if (userLang.startsWith('ar')) {
+                switchLanguage('ar');
+            } else {
+                switchLanguage('en'); // إذا كانت أي لغة أخرى غير العربية افتح الإنجليزية
+            }
+        }
+    </script>
 </body>
 </html>
